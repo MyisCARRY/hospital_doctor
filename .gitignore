@@ -360,4 +360,5 @@ build_log.txt
 **.g.dart
 
 android/key.properties
+/lib/generated/
 /.fvm/flutter_sdk/
