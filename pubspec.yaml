@@ -27,6 +27,9 @@ dependencies:
   hive: 2.0.4
   any_animated_button: 0.0.2
 
+  flutter_localizations:
+    sdk: flutter
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -37,6 +40,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/svg/
 
 flutter_intl:
   enabled: true
