@@ -1,1 +1,4 @@
-{}
+{
+  "loginFailure": "Wystąpił problem z logowaniem",
+  "registerFailure": "Wystąpił problem z rejestracją"
+}
