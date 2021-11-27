@@ -22,7 +22,7 @@ mixin HiveInjector on Injector {
     sl.registerLazySingleton<Box>(() => box, instanceName: settingsBoxId);
 
     // usecase
-    sl.registerLazySingleton(() => GetHiveFieldUsecase(repository: sl()));
+    sl.registerLazySingleton(() => GetHiveFieldUsecase<Token>(repository: sl()));
     sl.registerLazySingleton(() => SaveHiveFieldUsecase(repository: sl()));
     sl.registerLazySingleton(() => DeleteHiveFieldUsecase(repository: sl()));
 

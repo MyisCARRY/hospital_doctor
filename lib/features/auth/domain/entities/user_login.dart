@@ -9,7 +9,7 @@ class UserLogin with _$UserLogin {
     required String password,
   }) = _UserLogin;
 
-  factory UserLogin.emptyLogin() {
+  factory UserLogin.empty() {
     return UserLogin.login(
       login: '',
       password: '',

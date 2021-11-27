@@ -1,5 +1,9 @@
-abstract class HiveNames {
+abstract class HiveAdaptersNames {
   static const String token = 'TOKEN_ADAPTER';
+}
+
+abstract class HiveNames {
+  static const String token = 'TOKEN';
 }
 
 abstract class HiveIds {

@@ -7,6 +7,7 @@ import 'package:hospital_doctor/features/auth/domain/usecases/get_token_usecase.
 import 'package:hospital_doctor/features/auth/domain/usecases/login_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/register_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/save_token_usecase.dart';
+import 'package:hospital_doctor/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
 import 'package:hospital_doctor/injection_container.dart';
 
 mixin AuthInjector on Injector {
@@ -16,6 +17,13 @@ mixin AuthInjector on Injector {
     final dio = sl<Dio>(instanceName: globalDio);
 
     // blocs
+    sl.registerLazySingleton(() => AuthBloc(
+          saveTokenUsecase: sl(),
+          getTokenUsecase: sl(),
+          deleteTokenUsecase: sl(),
+          loginUsecase: sl(),
+          registerUsecase: sl(),
+        ));
 
     // use cases
     sl.registerLazySingleton(() => LoginUsecase(repository: sl()));

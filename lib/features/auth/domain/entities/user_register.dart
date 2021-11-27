@@ -11,7 +11,7 @@ class UserRegister with _$UserRegister {
     required String lastName,
   }) = _UserRegister;
 
-  factory UserRegister.emptyRegister() {
+  factory UserRegister.empty() {
     return UserRegister.register(
       login: '',
       password: '',
