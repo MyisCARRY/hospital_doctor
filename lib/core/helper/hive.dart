@@ -1,7 +1,7 @@
 abstract class HiveNames {
-  // static const String inviteInfo = 'INVITE';
+  static const String token = 'TOKEN_ADAPTER';
 }
 
 abstract class HiveIds {
-  // static const int tokenId = 222;
+  static const int tokenId = 1;
 }

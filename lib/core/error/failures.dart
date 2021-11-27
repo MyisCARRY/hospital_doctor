@@ -29,3 +29,29 @@ class RegisterFailure extends AuthFailure {
   @override
   String get _errorMessage => S.current.registerFailure;
 }
+
+abstract class HiveFailure extends Failure {}
+
+class HiveGetFieldFailure extends Failure {
+  @override
+  String get _errorMessage => S.current.hiveDefaultFailure;
+
+  @override
+  int get _errorCode => 200;
+}
+
+class HiveSaveFieldFailure extends Failure {
+  @override
+  String get _errorMessage => S.current.hiveDefaultFailure;
+
+  @override
+  int get _errorCode => 201;
+}
+
+class HiveDeleteFieldFailure extends Failure {
+  @override
+  String get _errorMessage => S.current.hiveDefaultFailure;
+
+  @override
+  int get _errorCode => 202;
+}

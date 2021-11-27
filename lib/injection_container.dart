@@ -2,13 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hospital_doctor/app_config.dart';
+import 'package:hospital_doctor/features/auth/injection_container.dart';
+import 'package:hospital_doctor/features/hive/injection_container.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 final sl = GetIt.instance;
 
 const globalDio = 'global';
 
-class InjectionContainer extends Injector {}
+class InjectionContainer extends Injector with HiveInjector, AuthInjector {}
 
 abstract class Injector {
   @mustCallSuper

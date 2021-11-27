@@ -2,8 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:hospital_doctor/features/auth/data/datasources/auth_datasource.dart';
 import 'package:hospital_doctor/features/auth/data/repositories/auth_repository.dart';
 import 'package:hospital_doctor/features/auth/domain/repositories/auth_repositories.dart';
+import 'package:hospital_doctor/features/auth/domain/usecases/delete_token_usecase.dart';
+import 'package:hospital_doctor/features/auth/domain/usecases/get_token_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/login_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/register_usecase.dart';
+import 'package:hospital_doctor/features/auth/domain/usecases/save_token_usecase.dart';
 import 'package:hospital_doctor/injection_container.dart';
 
 mixin AuthInjector on Injector {
@@ -17,6 +20,9 @@ mixin AuthInjector on Injector {
     // use cases
     sl.registerLazySingleton(() => LoginUsecase(repository: sl()));
     sl.registerLazySingleton(() => RegisterUsecase(repository: sl()));
+    sl.registerLazySingleton(() => SaveTokenUsecase(saveHiveFieldUsecase: sl()));
+    sl.registerLazySingleton(() => GetTokenUsecase(getHiveFieldUsecase: sl()));
+    sl.registerLazySingleton(() => DeleteTokenUsecase(deleteHiveFieldUsecase: sl()));
 
     // repositories
     sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(datasource: sl()));

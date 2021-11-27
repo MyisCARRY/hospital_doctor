@@ -1,4 +1,5 @@
 {
   "loginFailure": "Wystąpił problem z logowaniem",
-  "registerFailure": "Wystąpił problem z rejestracją"
+  "registerFailure": "Wystąpił problem z rejestracją",
+  "hiveDefaultFailure": "Wystąpił problem z lokalną bazą danych"
 }
