@@ -359,6 +359,7 @@ build_log.txt
 
 **.g.dart
 **.freezed.dart
+**.mocks.dart
 
 android/key.properties
 /lib/generated/

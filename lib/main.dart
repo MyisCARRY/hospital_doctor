@@ -59,10 +59,7 @@ class _MyAppState extends State<MyApp> {
             state.map(
               authenticated: (_) => const HomeScreen().setAsBaseScreen(),
               unauthenticated: (_) => const SignInScreen().setAsBaseScreen(),
-              error: (state) {
-                Notifications.error(failure: state.failure);
-                const SignInScreen().setAsBaseScreen();
-              },
+              error: (state) => Notifications.error(failure: state.failure),
             );
           },
         ),

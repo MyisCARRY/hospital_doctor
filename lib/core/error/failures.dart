@@ -12,6 +12,14 @@ abstract class Failure extends Equatable {
   String get errorMessage => '$_errorMessage \nec_$_errorCode';
 }
 
+class FailureTest extends Failure {
+  @override
+  int get _errorCode => -1;
+
+  @override
+  String get _errorMessage => '';
+}
+
 abstract class AuthFailure extends Failure {}
 
 class LoginFailure extends AuthFailure {
