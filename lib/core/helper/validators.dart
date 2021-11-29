@@ -1,31 +1,52 @@
 import 'package:hospital_doctor/core/helper/consts.dart';
 
-abstract class LoginValidator {
-  static String? errorMessage(String? value) {
+abstract class LengthValidator {
+  int get min;
+
+  int get max;
+
+  String? errorMessage(String? value) {
     if (value?.isEmpty ?? true) {
       return 'To pole jest wymagane';
     }
-    if (value!.length < Consts.loginMinLength) {
-      return 'To pole wymaga minimalnie ${Consts.loginMinLength} znaków';
+    if (value!.length < min) {
+      return 'To pole wymaga minimalnie $min znaków';
     }
-    if (Consts.loginMaxLength < value.length) {
-      return 'To pole wymaga maksymalnie ${Consts.loginMaxLength} znaków';
+    if (max < value.length) {
+      return 'To pole wymaga maksymalnie $max znaków';
     }
     return null;
   }
 }
 
-abstract class PasswordValidator {
-  static String? errorMessage(String? value) {
-    if (value?.isEmpty ?? true) {
-      return 'To pole jest wymagane';
-    }
-    if (value!.length < Consts.passwordMinLength) {
-      return 'To pole wymaga minimalnie ${Consts.passwordMinLength} znaków';
-    }
-    if (Consts.passwordMaxLength < value.length) {
-      return 'To pole wymaga maksymalnie ${Consts.passwordMaxLength} znaków';
-    }
-    return null;
-  }
+class LoginValidator extends LengthValidator {
+  @override
+  int get min => Consts.loginMinLength;
+
+  @override
+  int get max => Consts.loginMaxLength;
+}
+
+class PasswordValidator extends LengthValidator {
+  @override
+  int get min => Consts.passwordMinLength;
+
+  @override
+  int get max => Consts.passwordMaxLength;
+}
+
+class FirstNameValidator extends LengthValidator {
+  @override
+  int get min => Consts.firstNameMinLength;
+
+  @override
+  int get max => Consts.firstNameMaxLength;
+}
+
+class LastNameValidator extends LengthValidator {
+  @override
+  int get min => Consts.lastNameMinLength;
+
+  @override
+  int get max => Consts.lastNameMaxLength;
 }

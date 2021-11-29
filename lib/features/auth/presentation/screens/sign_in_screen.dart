@@ -58,20 +58,20 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Expanded(child: SizedBox(height: 16.0)),
+                const SizedBox(height: 80.0),
                 Text('Doctor app', style: roboto.s36.w700.blueColor),
-                const SizedBox(height: 142.0),
+                const SizedBox(height: 120.0),
                 BasicOutlinedTextfield(
                   controller: _loginController,
                   hint: 'Login',
-                  validator: LoginValidator.errorMessage,
+                  validator: LoginValidator().errorMessage,
                   onChanged: (value) => _signInFormBloc.add(SignInFormEvent.changeLogin(value)),
                 ),
                 const SizedBox(height: 16.0),
                 BasicOutlinedTextfield(
                   controller: _passwordController,
                   hint: 'Hasło',
-                  validator: PasswordValidator.errorMessage,
+                  validator: PasswordValidator().errorMessage,
                   onChanged: (value) => _signInFormBloc.add(SignInFormEvent.changePassword(value)),
                 ),
                 const Expanded(child: SizedBox(height: 16.0)),
@@ -101,7 +101,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _onSignInTap(UserLogin user) {
     if (_formKey.currentState?.validate() ?? false) {
-      sl<AuthBloc>().add(AuthEvent.signIn(UserLogin.empty()));
+      sl<AuthBloc>().add(AuthEvent.signIn(user));
     }
   }
 }
