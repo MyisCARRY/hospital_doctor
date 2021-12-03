@@ -17,14 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Text('home'),
-          TextButton(
-            child: const Text('Sign out'),
-            onPressed: () => sl<AuthBloc>().add(AuthEvent.signOut()),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('home'),
+            TextButton(
+              child: const Text('Sign out'),
+              onPressed: () => sl<AuthBloc>().add(AuthEvent.signOut()),
+            ),
+          ],
+        ),
       ),
     );
   }

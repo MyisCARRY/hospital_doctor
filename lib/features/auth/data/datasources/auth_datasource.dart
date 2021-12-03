@@ -18,15 +18,15 @@ class AuthDatasourceImpl extends AuthDatasource {
 
   @override
   Future<Token> loginUser(UserLogin user) async {
-    // TODO(Piotr): connect to API
-    await Future.delayed(const Duration(seconds: 2));
-    return Token(accessToken: '123123123');
+    final response = await dio.post('/doctor/login', data: user.toJson());
+    final result = Token.fromJson(response.data);
+    return result;
   }
 
   @override
   Future<Token> registerUser(UserRegister user) async {
-    // TODO(Piotr): connect to API
-    await Future.delayed(const Duration(seconds: 2));
-    return Token(accessToken: '123123123');
+    await dio.post('/doctor/register', data: user.toJson());
+    final result = await loginUser(UserLogin.login(login: user.login, password: user.password));
+    return result;
   }
 }

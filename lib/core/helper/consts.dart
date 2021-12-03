@@ -4,7 +4,7 @@ abstract class Consts {
   static const int loginMaxLength = 250;
 
   // password
-  static const int passwordMinLength = 3;
+  static const int passwordMinLength = 6;
   static const int passwordMaxLength = 250;
 
   // first name

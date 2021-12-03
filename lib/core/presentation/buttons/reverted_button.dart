@@ -6,8 +6,8 @@ import 'package:hospital_doctor/core/style/colors.dart';
 import 'package:hospital_doctor/core/style/dimens.dart';
 import 'package:hospital_doctor/core/style/text_styles.dart';
 
-class FilledButton extends CustomAnyAnimatedButton {
-  FilledButton({
+class RevertedButton extends CustomAnyAnimatedButton {
+  RevertedButton({
     required this.text,
     required this.onTap,
     this.enabled = true,
@@ -26,19 +26,19 @@ class FilledButton extends CustomAnyAnimatedButton {
         height: Dimens.buttonHeight,
         decoration: BoxDecoration(
           borderRadius: BorderRadiuses.all18,
-          color: enabled ? CustomColors.blue : CustomColors.grey,
+          color: enabled ? CustomColors.white : CustomColors.grey,
         ),
         child: Material(
           color: Colors.transparent,
           child: InkWell(
             onTap: enabled ? onTap : null,
             borderRadius: BorderRadiuses.all18,
-            splashColor: CustomColors.lightBlue,
+            splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             child: Center(
               child: Text(
                 text,
-                style: roboto.s22.w700.whiteColor,
+                style: roboto.s22.w700.blueColor,
                 maxLines: 1,
                 softWrap: true,
               ),
@@ -49,6 +49,7 @@ class FilledButton extends CustomAnyAnimatedButton {
 
   @override
   AnyAnimatedButtonParams get progressParams => AnyAnimatedButtonParams.progress(
-        backgroundColor: CustomColors.blue,
+        backgroundColor: CustomColors.white,
+        progressColor: CustomColors.blue,
       );
 }

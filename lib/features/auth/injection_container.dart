@@ -8,7 +8,9 @@ import 'package:hospital_doctor/features/auth/domain/usecases/login_usecase.dart
 import 'package:hospital_doctor/features/auth/domain/usecases/register_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/save_token_usecase.dart';
 import 'package:hospital_doctor/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
+import 'package:hospital_doctor/features/auth/presentation/blocs/sign_in_bloc/sign_in_bloc.dart';
 import 'package:hospital_doctor/features/auth/presentation/blocs/sign_in_form_bloc/sign_in_form_bloc.dart';
+import 'package:hospital_doctor/features/auth/presentation/blocs/sign_up_bloc/sign_up_bloc.dart';
 import 'package:hospital_doctor/features/auth/presentation/blocs/sign_up_form_bloc/sign_up_form_bloc.dart';
 import 'package:hospital_doctor/injection_container.dart';
 
@@ -23,11 +25,11 @@ mixin AuthInjector on Injector {
           saveTokenUsecase: sl(),
           getTokenUsecase: sl(),
           deleteTokenUsecase: sl(),
-          loginUsecase: sl(),
-          registerUsecase: sl(),
         ));
     sl.registerFactory(() => SignInFormBloc());
     sl.registerFactory(() => SignUpFormBloc());
+    sl.registerFactory(() => SignInBloc(loginUsecase: sl()));
+    sl.registerFactory(() => SignUpBloc(registerUsecase: sl()));
 
     // use cases
     sl.registerLazySingleton(() => LoginUsecase(repository: sl()));

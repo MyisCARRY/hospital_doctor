@@ -10,6 +10,8 @@ part 'token.g.dart';
 class Token with _$Token {
   @HiveType(typeId: HiveIds.tokenId, adapterName: HiveAdaptersNames.token)
   factory Token({
-    @HiveField(1) required String accessToken,
+   @JsonKey(name: 'token') @HiveField(1) required String accessToken,
   }) = _Token;
+
+  factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
 }

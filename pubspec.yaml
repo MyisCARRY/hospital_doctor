@@ -38,6 +38,7 @@ dev_dependencies:
   freezed_annotation: 1.0.0
   bloc_test: 8.5.0
   mockito: 5.0.16
+  json_serializable: 6.1.1
 
 flutter:
   uses-material-design: true
