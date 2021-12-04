@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:hospital_doctor/features/home/domain/entities/new_patient.dart';
 import 'package:hospital_doctor/features/home/domain/entities/patient.dart';
 
 abstract class HomeDatasource {
   Future<List<Patient>> getPatientsList();
+
+  Future<bool> createNewPatient(NewPatient patient);
 }
 
 class HomeDatasourceImpl extends HomeDatasource {
@@ -17,5 +20,11 @@ class HomeDatasourceImpl extends HomeDatasource {
     final response = await dio.get('/doctor/myPatients');
     final result = (response.data as List).map((json) => Patient.fromJson(json)).toList();
     return result;
+  }
+
+  @override
+  Future<bool> createNewPatient(NewPatient patient) async {
+    await dio.post('/doctor/patient', data: patient.toJson());
+    return true;
   }
 }

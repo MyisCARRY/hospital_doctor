@@ -45,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: CustomColors.white,
       floatingActionButton: AddFAB(
-        onTap: () => const NewPatientScreen().addScreen(context),
+        onTap: () => NewPatientScreen(
+          refresh: () => _patientsListBloc.add(PatientsListEvent.load()),
+        ).addScreen(context),
       ),
       appBar: TitleAppBar(
         context,

@@ -1,4 +1,5 @@
 import 'package:hospital_doctor/core/helper/consts.dart';
+import 'package:hospital_doctor/core/helper/regexes.dart';
 
 abstract class LengthValidator {
   int get min;
@@ -7,13 +8,13 @@ abstract class LengthValidator {
 
   String? errorMessage(String? value) {
     if (value?.isEmpty ?? true) {
-      return 'To pole jest wymagane';
+      return 'This field is necessary';
     }
     if (value!.length < min) {
-      return 'To pole wymaga minimalnie $min znaków';
+      return 'This field needs min of $min characters';
     }
     if (max < value.length) {
-      return 'To pole wymaga maksymalnie $max znaków';
+      return 'This field needs max of $max characters';
     }
     return null;
   }
@@ -49,4 +50,16 @@ class LastNameValidator extends LengthValidator {
 
   @override
   int get max => Consts.lastNameMaxLength;
+}
+
+abstract class EmailValidator {
+  static String? errorMessage(String? value) {
+    if (value?.isEmpty ?? true) {
+      return 'This field is necessary';
+    }
+    if (!Regexes.isEmail.hasMatch(value!)) {
+      return 'Incorrect email';
+    }
+    return null;
+  }
 }
