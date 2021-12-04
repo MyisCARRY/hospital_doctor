@@ -63,3 +63,12 @@ abstract class EmailValidator {
     return null;
   }
 }
+
+abstract class EmptyValidator {
+  static String? errorMessage(String? value) {
+    if (value?.isEmpty ?? true) {
+      return 'This field is necessary';
+    }
+    return null;
+  }
+}

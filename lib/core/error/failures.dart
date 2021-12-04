@@ -81,3 +81,19 @@ class CreateNewPatientFailure extends HomeFailure {
   @override
   String get _errorMessage => S.current.createNewPatientFailure;
 }
+
+class GetMedicalRecordFailure extends HomeFailure {
+  @override
+  int get _errorCode => 302;
+
+  @override
+  String get _errorMessage => S.current.getMedicalRecordFailure;
+}
+
+class UpdateMedicalRecordFailure extends HomeFailure {
+  @override
+  int get _errorCode => 303;
+
+  @override
+  String get _errorMessage => S.current.updateMedicalRecordFailure;
+}

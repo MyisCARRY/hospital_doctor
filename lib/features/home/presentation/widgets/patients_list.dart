@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hospital_doctor/core/style/paddings.dart';
 import 'package:hospital_doctor/features/home/domain/entities/patient.dart';
+import 'package:hospital_doctor/features/home/presentation/screens/medical_record_screen.dart';
 import 'package:hospital_doctor/features/home/presentation/widgets/patient_list_tile.dart';
 
 class PatientsList extends StatelessWidget {
@@ -18,7 +19,7 @@ class PatientsList extends StatelessWidget {
       itemCount: patients.length,
       itemBuilder: (BuildContext context, int i) => PatientListTile(
         patient: patients[i],
-        onTap: () {}, // TODO(Piotr): add going to details screen
+        onTap: () => MedicalRecordScreen(patient: patients[i]).addScreen(context),
       ),
     );
   }

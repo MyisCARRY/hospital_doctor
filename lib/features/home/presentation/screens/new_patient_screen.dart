@@ -12,7 +12,7 @@ import 'package:hospital_doctor/core/presentation/widgets/textfields/basic_outli
 import 'package:hospital_doctor/core/style/colors.dart';
 import 'package:hospital_doctor/core/style/paddings.dart';
 import 'package:hospital_doctor/features/home/domain/entities/new_patient.dart';
-import 'package:hospital_doctor/features/home/presentation/blocs/create_new_patient_vloc/create_new_patient_bloc.dart';
+import 'package:hospital_doctor/features/home/presentation/blocs/create_new_patient_bloc/create_new_patient_bloc.dart';
 import 'package:hospital_doctor/features/home/presentation/blocs/new_patient_form_bloc/new_patient_form_bloc.dart';
 import 'package:hospital_doctor/injection_container.dart';
 
