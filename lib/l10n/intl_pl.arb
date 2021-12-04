@@ -1,5 +1,6 @@
 {
   "loginFailure": "Wystąpił problem z logowaniem",
   "registerFailure": "Wystąpił problem z rejestracją",
-  "hiveDefaultFailure": "Wystąpił problem z lokalną bazą danych"
+  "hiveDefaultFailure": "Wystąpił problem z lokalną bazą danych",
+  "getPatientsFailure": "Wystąpił problem z pobieraniem pacjentów"
 }

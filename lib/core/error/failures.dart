@@ -63,3 +63,13 @@ class HiveDeleteFieldFailure extends Failure {
   @override
   int get _errorCode => 202;
 }
+
+abstract class HomeFailure extends Failure {}
+
+class GetPatientsFailure extends HomeFailure {
+  @override
+  int get _errorCode => 300;
+
+  @override
+  String get _errorMessage => S.current.getPatientsFailure;
+}

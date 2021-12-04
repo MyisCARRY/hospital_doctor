@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hospital_doctor/core/error/failures.dart';
 import 'package:hospital_doctor/core/helper/hive.dart';
+import 'package:hospital_doctor/core/usecase/usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/entities/token.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/delete_token_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/get_token_usecase.dart';
@@ -47,14 +48,12 @@ void main() {
     );
   });
 
-  void setUpGetTokenSuccess() =>
-      when(_mockGetTokenUsecase.call(HiveNames.token)).thenAnswer((_) async => Right(_token));
+  void setUpGetTokenSuccess() => when(_mockGetTokenUsecase.call(NoParams())).thenAnswer((_) async => Right(_token));
 
   void setUpGetNullTokenSuccess() =>
-      when(_mockGetTokenUsecase.call(HiveNames.token)).thenAnswer((_) async => const Right(null));
+      when(_mockGetTokenUsecase.call(NoParams())).thenAnswer((_) async => const Right(null));
 
-  void setUpGetTokenFailure() =>
-      when(_mockGetTokenUsecase.call(HiveNames.token)).thenAnswer((_) async => Left(_failure));
+  void setUpGetTokenFailure() => when(_mockGetTokenUsecase.call(NoParams())).thenAnswer((_) async => Left(_failure));
 
   void setUpSaveTokenSuccess() =>
       when(_mockSaveTokenUsecase.call(_hiveSaveParam)).thenAnswer((_) async => const Right(true));

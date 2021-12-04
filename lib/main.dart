@@ -9,7 +9,7 @@ import 'package:hospital_doctor/core/navigator/navigator.dart';
 import 'package:hospital_doctor/core/presentation/widgets/notifications.dart';
 import 'package:hospital_doctor/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
 import 'package:hospital_doctor/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:hospital_doctor/features/home/presentation%20/screens/home_screen.dart';
+import 'package:hospital_doctor/features/home/presentation/screens/home_screen.dart';
 import 'package:hospital_doctor/generated/l10n.dart';
 import 'package:hospital_doctor/injection_container.dart';
 

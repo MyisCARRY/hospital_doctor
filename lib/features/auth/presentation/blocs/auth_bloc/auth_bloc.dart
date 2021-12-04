@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hospital_doctor/core/error/failures.dart';
 import 'package:hospital_doctor/core/helper/hive.dart';
+import 'package:hospital_doctor/core/usecase/usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/entities/token.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/delete_token_usecase.dart';
 import 'package:hospital_doctor/features/auth/domain/usecases/get_token_usecase.dart';
@@ -54,7 +55,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Stream<AuthState> _checkStatus() async* {
-    final result = await getTokenUsecase(HiveNames.token);
+    final result = await getTokenUsecase(NoParams());
     yield result.fold(
       (failure) => AuthState.error(failure),
       (data) => data == null ? AuthState.unauthenticated() : AuthState.authenticated(),

@@ -1,6 +1,7 @@
 abstract class SvgIcons {
   static const String _path = 'assets/svg';
 
+  static const String backArrow = '$_path/back_arrow.svg';
   static const String eye = '$_path/eye.svg';
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hospital_doctor/core/style/text_styles.dart';
 
 class CustomEmptyWidget extends StatelessWidget {
   const CustomEmptyWidget({
@@ -16,6 +17,7 @@ class CustomEmptyWidget extends StatelessWidget {
         children: [
           Text(
             text ?? "EMPTY",
+            style: roboto.s18.w500.blueColor,
             textAlign: TextAlign.center,
           ),
         ],

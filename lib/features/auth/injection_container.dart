@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hospital_doctor/core/interceptors/token_interceptor.dart';
 import 'package:hospital_doctor/features/auth/data/datasources/auth_datasource.dart';
 import 'package:hospital_doctor/features/auth/data/repositories/auth_repository.dart';
 import 'package:hospital_doctor/features/auth/domain/repositories/auth_repositories.dart';
@@ -43,5 +44,7 @@ mixin AuthInjector on Injector {
 
     // data sources
     sl.registerLazySingleton<AuthDatasource>(() => AuthDatasourceImpl(dio: dio));
+
+    dio..interceptors.add(TokenInterceptor(getTokenUsecase: sl()));
   }
 }
