@@ -22,7 +22,7 @@ class BasicOutlinedTextfield extends StatefulWidget {
     this.autofillHints,
     this.validator,
     this.onChanged,
-    this.autocorrect = true,
+    this.autocorrect = false,
     this.obscure = false,
     this.showObscureSwitch = false,
     Key? key,
