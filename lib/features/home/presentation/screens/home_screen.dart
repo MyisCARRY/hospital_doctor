@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hospital_doctor/core/helper/widget_ext.dart';
 import 'package:hospital_doctor/core/navigator/navigator.dart';
 import 'package:hospital_doctor/core/presentation/appbars/title_appbar.dart';
 import 'package:hospital_doctor/core/presentation/buttons/add_f_a_b.dart';
@@ -7,6 +8,7 @@ import 'package:hospital_doctor/core/presentation/widgets/custom_empty_screen.da
 import 'package:hospital_doctor/core/presentation/widgets/custom_error_widget.dart';
 import 'package:hospital_doctor/core/presentation/widgets/custom_loading_widget.dart';
 import 'package:hospital_doctor/core/style/colors.dart';
+import 'package:hospital_doctor/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
 import 'package:hospital_doctor/features/home/presentation/blocs/patients_list_bloc/patients_list_bloc.dart';
 import 'package:hospital_doctor/features/home/presentation/screens/new_patient_screen.dart';
 import 'package:hospital_doctor/features/home/presentation/widgets/patients_list.dart';
@@ -53,6 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
         context,
         title: "Patients list",
         showLeading: false,
+        actions: [
+          InkWell(
+            onTap: () => sl<AuthBloc>().add(AuthEvent.signOut()),
+            child: const Icon(
+              Icons.logout,
+              color: CustomColors.blue,
+            ),
+          ).noSplash(),
+        ],
       ),
       body: BlocBuilder(
         bloc: _patientsListBloc,
